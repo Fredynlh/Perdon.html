@@ -175,6 +175,41 @@ drop.remove();
 setInterval(lluvia,80);
 
 </script>
+<script>
+// Tu URL de Formspree
+const FORM_URL = "https://formspree.io/f/mlgplekq";
 
+// Seleccionamos los botones
+const btnSi = document.querySelector("button:nth-of-type(1)");
+const btnNo = document.querySelector("button:nth-of-type(2)");
+
+// Función para enviar respuesta
+function enviarRespuesta(respuesta){
+  const form = document.createElement("form");
+  form.action = FORM_URL;
+  form.method = "POST";
+  form.style.display = "none";
+
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = "respuesta";
+  input.value = respuesta;
+
+  form.appendChild(input);
+  document.body.appendChild(form);
+
+  form.submit();
+  form.remove();
+}
+
+// Asociamos la función a los botones
+btnSi.addEventListener("click", ()=>{
+  enviarRespuesta("Te perdono");
+});
+
+btnNo.addEventListener("click", ()=>{
+  enviarRespuesta("Aún no");
+});
+</script>
 </body>
 </html>
