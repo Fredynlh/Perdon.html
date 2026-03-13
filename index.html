@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayana</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+background:#0b0b0b;
+color:#aaa;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+max-width:700px;
+padding:40px;
+z-index:2;
+}
+
+/* NOMBRE */
+
+.dayana{
+font-size:85px;
+font-weight:bold;
+background:linear-gradient(45deg,#ff5e7e,#ff9f8f,#ffd166);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:brillo 3s infinite alternate;
+margin-bottom:20px;
+}
+
+@keyframes brillo{
+0%{filter:brightness(1);}
+100%{filter:brightness(1.6);}
+}
+
+.mensaje{
+font-size:28px;
+margin-bottom:30px;
+color:#888;
+}
+
+/* BOTONES */
+
+button{
+padding:14px 35px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin:10px;
+cursor:pointer;
+background:#1f1f1f;
+color:white;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff4d6d;
+transform:scale(1.1);
+}
+
+/* LLUVIA */
+
+.lluvia{
+position:absolute;
+width:2px;
+height:20px;
+background:#6ec6ff;
+opacity:0.6;
+animation:caer 3s linear infinite;
+}
+
+@keyframes caer{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(100vh);}
+}
+
+/* GATOS */
+
+.gato{
+position:absolute;
+width:120px;
+opacity:0.8;
+}
+
+.g1{top:10%;left:8%;}
+.g2{top:70%;left:15%;}
+.g3{top:20%;right:10%;}
+.g4{bottom:10%;right:15%;}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.dayana{
+font-size:55px;
+}
+
+.mensaje{
+font-size:22px;
+}
+
+button{
+width:100%;
+max-width:250px;
+}
+
+.gato{
+width:80px;
+}
+
+.g1{top:5%;left:5%;}
+.g2{top:80%;left:10%;}
+.g3{top:10%;right:5%;}
+.g4{bottom:5%;right:10%;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+<div class="dayana">Dayana</div>
+
+<div class="mensaje">
+Perdón
+</div>
+
+<button onclick="alert('Prometo hacerlo mejor')">
+Te perdono
+</button>
+
+<button onclick="alert('Seguiré intentando')">
+Aún no
+</button>
+
+</div>
+
+<script>
+
+function lluvia(){
+
+let drop=document.createElement("div");
+drop.className="lluvia";
+
+drop.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(drop);
+
+setTimeout(()=>{
+drop.remove();
+},3000);
+
+}
+
+setInterval(lluvia,80);
+
+</script>
+
+</body>
+</html>
